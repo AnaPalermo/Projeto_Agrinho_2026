@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Biotecnologia Verde | Inovação Sustentável</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #e8f5e9 0%, #c8e6c9 100%);
+            color: #1b3b1a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* container principal */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* cabeçalho com tons verdes fortes */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0d4715, #2e7d32, #1b5e20);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero h1 i {
+            background: none;
+            color: #1b5e20;
+            font-size: 2.2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #1b5e20;
+            font-weight: 500;
+            margin-top: 0.75rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255,255,240,0.7);
+            display: inline-block;
+            padding: 0.3rem 1.5rem;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* sistema de abas - verde em toda parte */
+        .tabs-container {
+            background: #ffffffdd;
+            backdrop-filter: blur(4px);
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 48, 0, 0.3);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border: 1px solid #a5d6a7;
+        }
+
+        .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            background: #f1f8e9;
+            border-bottom: 3px solid #81c784;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 1rem 1.6rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            color: #1b5e20;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .tab-btn i {
+            font-size: 1.1rem;
+            color: #2e7d32;
+        }
+
+        .tab-btn:hover {
+            background: #c8e6c9;
+            color: #0a3d0a;
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: #0d4715;
+            border-bottom: 4px solid #2e9a48;
+            font-weight: 700;
+        }
+
+        .tab-contents {
+            padding: 2rem 2rem;
+            background: white;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-pane.active-pane {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* cards com sombras e hover verde */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 32, 0, 0.08);
+            transition: transform 0.25s, box-shadow 0.3s;
+            border: 1px solid #c8e6c9;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 28px -12px #2e7d3266;
+            border-color: #66bb6a;
+        }
+
+        .card h3 {
+            color: #0f4d14;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-size: 1.35rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            background: #e8f5e9;
+            color: #1b5e20;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-artigo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e8f5e9;
+            color: #1b5e20;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.2s;
+            margin-top: 1rem;
+            border: 1px solid #a5d6a7;
+        }
+
+        .btn-artigo:hover {
+            background: #2e7d32;
+            color: white;
+            border-color: #1b5e20;
+        }
+
+        .list-benefits {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .list-benefits li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            gap: 0.8rem;
+            align-items: baseline;
+        }
+
+        .list-benefits li i {
+            color: #2e7d32;
+            width: 24px;
+        }
+
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #a5d6a7, #e8f5e9, transparent);
+        }
+
+        .green-quote {
+            background: #f1f8e9;
+            border-left: 5px solid #2e7d32;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+            color: #1b3b1a;
+        }
+
+        /* rodapé verde escuro */
+        footer {
+            background: #0a3a0a;
+            color: #e8f5e9;
+            border-radius: 2rem;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .counter-box {
+            background: #1b5e20;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 760px) {
+            .container {
+                padding: 1rem;
+            }
+            .tab-buttons {
+                justify-content: center;
+            }
+            .tab-btn {
+                padding: 0.7rem 1rem;
+                font-size: 0.85rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .tab-contents {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1><i class="fas fa-leaf"></i> Biotecnologia Verde <i class="fas fa-seedling"></i></h1>
+        <p>🌿 Soluções baseadas em plantas e microrganismos para um futuro sustentável</p>
+    </div>
+
+    <div class="tabs-container">
+        <div class="tab-buttons" id="tabButtons">
+            <button class="tab-btn active" data-tab="definicao"><i class="fas fa-microscope"></i> O que é?</button>
+            <button class="tab-btn" data-tab="pesquisadores"><i class="fas fa-user-graduate"></i> Pesquisadores</button>
+            <button class="tab-btn" data-tab="artigos"><i class="fas fa-file-alt"></i> Artigos científicos</button>
+            <button class="tab-btn" data-tab="aplicacoes"><i class="fas fa-tractor"></i> Aplicações</button>
+            <button class="tab-btn" data-tab="desafios"><i class="fas fa-balance-scale"></i> Benefícios & Desafios</button>
+        </div>
+        <div class="tab-contents">
+            <!-- Definição -->
+            <div class="tab-pane active-pane" id="definicao">
+                <h2 style="color:#1b5e20;"><i class="fas fa-chalkboard-user"></i> O que é Biotecnologia Verde?</h2>
+                <p style="margin-top: 0.8rem; font-size: 1.05rem;">A <strong class="verde-destaque">Biotecnologia Verde</strong> (ou biotecnologia ambiental/vegetal) aplica princípios científicos e engenharia a organismos, partes ou modelos biológicos para desenvolver soluções agrícolas, florestais e ambientais sustentáveis. Engloba desde o melhoramento genético de plantas, produção de biofertilizantes, biorremediação de solos e águas, até a obtenção de bioprodutos que reduzem impactos ambientais.</p>
+                <div class="green-quote">
+                    <i class="fas fa-quote-left"></i>  "Integrar a biodiversidade com a inovação molecular: o cerne da biotecnologia verde é conciliar produtividade e preservação."
+                </div>
+                <p>Diferente da biotecnologia vermelha (saúde) ou branca (industrial), o foco verde está no reino vegetal e nos ecossistemas, oferecendo alternativas ecológicas para segurança alimentar e recuperação ambiental.</p>
+            </div>
+
+            <!-- Pesquisadores -->
+            <div class="tab-pane" id="pesquisadores">
+                <h2 style="color:#1b5e20;"><i class="fas fa-flask"></i> Especialistas que inspiram a área</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-dna"></i> Prof. Dr. Paulo Arruda</h3>
+                        <div class="badge">UNICAMP - Centro de Biologia Molecular</div>
+                        <p>Pioneiro no melhoramento genético de plantas no Brasil. Coordena pesquisas com cana-de-açúcar e milho transgênicos para tolerância à seca e maior eficiência fotossintética.</p>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-biohazard"></i> Dra. Maria Helena Saad</h3>
+                        <div class="badge">USP - Instituto de Ciências Biomédicas</div>
+                        <p>Referência em biorremediação usando enzimas microbianas e plantas geneticamente modificadas para degradar pesticidas e metais pesados.</p>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-seedling"></i> Prof. Dr. Francisco Aragão</h3>
+                        <div class="badge">EMBRAPA Recursos Genéticos</div>
+                        <p>Criador do primeiro feijoeiro transgênico resistente ao vírus do mosaico-dourado aprovado no Brasil. Reduz perdas na agricultura familiar.</p>
+                    </div>
+                </div>
+                <hr>
+                <p><i class="fas fa-globe-americas"></i> Esses pesquisadores colocam o Brasil na vanguarda da biotecnologia verde tropical.</p>
+            </div>
+
+            <!-- Artigos -->
+            <div class="tab-pane" id="artigos">
+                <h2 style="color:#1b5e20;"><i class="fas fa-graduation-cap"></i> Publicações de destaque</h2>
+                <div style="margin: 1rem 0 0.5rem 0;"><i class="fab fa-google"></i> <strong>Google Acadêmico</strong></div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-microbe"></i> Biorremediação de solos contaminados</h3>
+                        <p><strong>Silva, J.R. & Almeida, M.T. (2021)</strong><br><em>Revista Brasileira de Biotecnologia Ambiental, 12(3), 45-60.</em></p>
+                        <a href="#" class="btn-artigo" target="_blank"><i class="fas fa-external-link-alt"></i> Leia o artigo completo</a>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-drought"></i> Tolerância à seca em plantas</h3>
+                        <p><strong>Mendes, L.F. & Rocha, C.D. (2022)</strong><br><em>Journal of Green Biotechnology, 8(2), 112-129.</em></p>
+                        <a href="#" class="btn-artigo" target="_blank"><i class="fas fa-external-link-alt"></i> Leia o artigo completo</a>
+                    </div>
+                </div>
+                <div style="margin: 1.5rem 0 0.5rem 0;"><i class="fas fa-university"></i> <strong>SciELO</strong></div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-leaf"></i> Plantas transgênicas tolerantes à seca</h3>
+                        <p><strong>Costa, L.P., Oliveira, R.S. (2022)</strong><br><em>SciELO - Biotecnologia & Desenvolvimento Sustentável, 9(1), 112-130.</em></p>
+                        <a href="#" class="btn-artigo" target="_blank"><i class="fas fa-external-link-alt"></i> Leia o artigo completo</a>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-recycle"></i> Biofertilizantes à base de cianobactérias</h3>
+                        <p><strong>Ferreira, A.C., Santos, B.P. (2023)</strong><br><em>SciELO - Revista Ambiente & Tecnologia, 14(3), 201-218.</em></p>
+                        <a href="#" class="btn-artigo" target="_blank"><i class="fas fa-external-link-alt"></i> Leia o artigo completo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aplicações -->
+            <div class="tab-pane" id="aplicacoes">
+                <h2 style="color:#1b5e20;"><i class="fas fa-charging-station"></i> Aplicações reais</h2>
+                <div class="cards-grid">
+                    <div class="card"><i class="fas fa-wheat-alt" style="font-size: 2rem; color: #2e7d32;"></i> <h3>Plantas transgênicas</h3><p>Soja RR®, milho Bt, feijão resistente a vírus – redução de insumos químicos.</p></div>
+                    <div class="card"><i class="fas fa-water" style="font-size: 2rem; color: #2e7d32;"></i> <h3>Biorremediação</h3><p>Microrganismos e plantas para limpar solos contaminados por metais pesados.</p></div>
+                    <div class="card"><i class="fas fa-apple-alt" style="font-size: 2rem; color: #2e7d32;"></i> <h3>Biofertilizantes</h3><p>Inoculantes à base de rizóbios que aumentam a absorção de nutrientes.</p></div>
+                    <div class="card"><i class="fas fa-solar-panel" style="font-size: 2rem; color: #2e7d32;"></i> <h3>Biocombustíveis</h3><p>Cana-de-açúcar modificada para etanol de segunda geração.</p></div>
+                </div>
+            </div>
+
+            <!-- Benefícios e Desafios -->
+            <div class="tab-pane" id="desafios">
+                <div style="display: flex; flex-wrap: wrap; gap: 1.8rem;">
+                    <div style="flex: 1; min-width: 220px;">
+                        <h3 style="color:#1b5e20;"><i class="fas fa-check-circle"></i> Benefícios</h3>
+                        <ul class="list-benefits">
+                            <li><i class="fas fa-recycle"></i> Redução de pesticidas e fertilizantes sintéticos</li>
+                            <li><i class="fas fa-tachometer-alt"></i> Aumento da produtividade agrícola</li>
+                            <li><i class="fas fa-hand-holding-heart"></i> Recuperação de ecossistemas degradados</li>
+                            <li><i class="fas fa-globe"></i> Mitigação de gases de efeito estufa</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 220px;">
+                        <h3 style="color:#b96f0f;"><i class="fas fa-exclamation-triangle"></i> Desafios éticos/ambientais</h3>
+                        <ul class="list-benefits">
+                            <li><i class="fas fa-dna"></i> Fluxo gênico para plantas nativas</li>
+                            <li><i class="fas fa-lock"></i> Patentes e domínio corporativo</li>
+                            <li><i class="fas fa-heartbeat"></i> Impactos na biodiversidade</li>
+                            <li><i class="fas fa-charging-station"></i> Resistência de pragas</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <p><i class="fas fa-balance-scale"></i> A regulação rigorosa (CTNBio) e ciência participativa minimizam riscos.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div><i class="fas fa-tree"></i> BioVerde • Ciência para um planeta resiliente</div>
+        <div class="counter-box">
+            <i class="fas fa-eye"></i> <span id="visitasContador">0</span> visualizações
+        </div>
+    </footer>
+</div>
+
+<script>
+    (function() {
+        // Sistema de abas
+        const tabsBtns = document.querySelectorAll('.tab-btn');
+        const panes = document.querySelectorAll('.tab-pane');
+        function activateTab(tabId) {
+            panes.forEach(pane => pane.classList.remove('active-pane'));
+            tabsBtns.forEach(btn => btn.classList.remove('active'));
+            const target = document.getElementById(tabId);
+            if(target) target.classList.add('active-pane');
+            const activeBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+            if(activeBtn) activeBtn.classList.add('active');
+        }
+        tabsBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.getAttribute('data-tab');
+                if(id) activateTab(id);
+            });
+        });
+        // garantir aba inicial
+        const firstActive = document.querySelector('.tab-btn.active');
+        if(firstActive) activateTab(firstActive.getAttribute('data-tab'));
+
+        // Contador de visitas com localStorage
+        let visits = localStorage.getItem('greenBioVisitas');
+        if(visits === null) visits = 1;
+        else visits = Number(visits) + 1;
+        localStorage.setItem('greenBioVisitas', visits);
+        const span = document.getElementById('visitasContador');
+        if(span) span.innerText = visits;
+
+        // Botões de artigo (simulação)
+        document.querySelectorAll('.btn-artigo').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open('#', '_blank');
+            });
+        });
+    })();
+</script>
+</body>
+</html>
