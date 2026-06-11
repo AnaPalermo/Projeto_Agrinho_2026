@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(145deg, #eaf7e6 0%, #d4e9cf 100%);
+    color: #1e2f1c;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1b5e2a, #2e7d32);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero h1 i {
+    background: none;
+    color: #2e7d32;
+    font-size: 2.2rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #2c5e2a;
+    margin-top: 0.75rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Sistema de abas */
+.tabs-container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+    border-radius: 2rem;
+    box-shadow: 0 20px 35px -12px rgba(0, 32, 0, 0.2);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fef9e8;
+    border-bottom: 2px solid #b8dfb0;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 1rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    color: #2c5a2a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 40px 40px 0 0;
+}
+
+.tab-btn i {
+    font-size: 1.1rem;
+}
+
+.tab-btn:hover {
+    background: #e0f0db;
+    color: #1b4d1a;
+}
+
+.tab-btn.active {
+    background: white;
+    color: #1f6e2c;
+    border-bottom: 3px solid #2e9a48;
+}
+
+.tab-contents {
+    padding: 2rem 2rem;
+    background: white;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-pane.active-pane {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* Cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 1.2rem;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s, box-shadow 0.3s;
+    border: 1px solid #dbefd4;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 28px -12px rgba(50, 80, 30, 0.25);
+}
+
+.card h3 {
+    color: #1a5a24;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 1.35rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge {
+    background: #e9f5e3;
+    color: #2b6e2f;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.7rem;
+    border-radius: 30px;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.btn-artigo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #eef5ea;
+    color: #1e5a2a;
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.2s;
+    margin-top: 1rem;
+    border: 1px solid #c8e0bd;
+}
+
+.btn-artigo:hover {
+    background: #2e7d32;
+    color: white;
+    border-color: #2e7d32;
+}
+
+.list-benefits {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.list-benefits li {
+    margin-bottom: 0.7rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: baseline;
+}
+
+.list-benefits li i {
+    color: #2c8f3a;
+    width: 24px;
+}
+
+hr {
+    margin: 1.5rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #cfe8c7, transparent);
+}
+
+.green-quote {
+    background: #f2fef0;
+    border-left: 5px solid #2e9a48;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    margin: 1rem 0;
+}
+
+/* Rodapé */
+footer {
+    background: #1e3b1c;
+    color: #e2f3db;
+    border-radius: 2rem;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.counter-box {
+    background: #2c5e29;
+    padding: 0.4rem 1rem;
+    border-radius: 60px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+/* Responsivo */
+@media (max-width: 760px) {
+    .container {
+        padding: 1rem;
+    }
+    .tab-buttons {
+        justify-content: center;
+    }
+    .tab-btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+    .hero h1 {
+        font-size: 1.9rem;
+    }
+    .tab-contents {
+        padding: 1.2rem;
+    }
+}
